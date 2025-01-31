@@ -1,12 +1,12 @@
+const submitBtn=document.querySelector('.generateBtn')
 
-const generateBtn=document.querySelector('.generateBtn')
-
-generateBtn.addEventListener('click',()=> {
+submitBtn.addEventListener('click',()=> {
     const length=document.querySelector('#length').value
-    const uppercase=document.querySelector('#uppercase').checked;
-    const lowercase=document.querySelector('#lowercase').checked;
-    const numbers=document.querySelector('#numbers').checked;
-    const symbols=document.querySelector('#symbols').checked
+
+    const uppercaseInclude=document.querySelector('#uppercase').checked;
+    const lowercaseInclude=document.querySelector('#lowercase').checked;
+    const numbersInclude=document.querySelector('#numbers').checked;
+    const symbolsInclude=document.querySelector('#symbols').checked;
 
     const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
@@ -15,34 +15,22 @@ generateBtn.addEventListener('click',()=> {
 
     let characters="";
 
-    if(uppercase) characters += uppercaseChars
-    if(lowercase) characters += lowercaseChars
-    if(numbers) characters += numberChars
-    if(symbols) characters += symbolChars
-    
-    if(characters === "") {
-        alert('Please select at least one checkbox')
+    if(uppercaseInclude) characters+=uppercaseChars
+    if(lowercaseInclude) characters+=lowercaseChars
+    if(numbersInclude) characters+=numberChars
+    if(symbolsInclude) characters+=symbolChars
+
+    if(characters==="") {
+        alert('Please select at lease one checkbox')
+        return;
     }
 
-   let password="";
+    let password="";
 
    for(let i=0;i<length;i++) {
-      const randomIndex = Math.floor(Math.random()*characters.length)
-      password+=characters[randomIndex]
+    const randomIndex=Math.floor(Math.random()*characters.length)
+    password+=characters[randomIndex]
    }
-   document.querySelector('.password').innerHTML=password;
+   document.querySelector('.password').textContent=password
+   
 })
-
-
-
-
-
-
-
-
-
-
-
-// let alertMessage=document.createElement('p')
-    // alertMessage.textContent='Please select at least one checkbox'
-    // alertMessage.style.cssText="color:red;margin-top:6px"
