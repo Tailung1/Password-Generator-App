@@ -21,7 +21,7 @@ submitBtn.addEventListener('click',()=> {
     if(symbolsInclude) characters+=symbolChars
 
     if(characters==="") {
-        alert('Please select at lease one checkbox')
+        alert('Please select at least one checkbox')
         return;
     }
 
