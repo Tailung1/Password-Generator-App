@@ -10,8 +10,7 @@ html {
 }
 body {
     background-color: #08070B;
-
-    font-family: "JetBrains Mono",sans-serif;
+    font-family: "JetBrains Mono",sans-serif; 
 }
 .main-div {
     max-width: 45rem;
@@ -19,7 +18,17 @@ body {
     flex-direction: column;
     margin: 0 auto;
     gap: 1.6rem;
-    padding: 6.4rem 0;
+    padding: 3.4rem 0;
+}
+.copy {
+    cursor: pointer;
+}
+.copy:hover {
+    width: 3rem;
+    height: 3rem;
+}
+.copy:active {
+    background-color: rgb(247, 254, 249);
 }
 
 h2 {
@@ -84,10 +93,12 @@ label {
     color: #E6E5EA;
     font-size: 1.6rem;
     font-weight: 700;
+    cursor: pointer;
 }
 input[type=checkbox] {
     width: 2rem;
     height: 2rem;
+    cursor: pointer;
 }
 
 .strength-div {
@@ -121,7 +132,7 @@ input[type=checkbox] {
     display: flex;
     gap: 0.8rem;
 }
-.generateBtn {
+.generateBtn,.resetBtn  {
     padding: 1.8rem 0;
     width: 100%;
     border: none;
@@ -134,8 +145,22 @@ input[type=checkbox] {
     justify-content: center;
     align-items: center;
     gap: 1.6rem;
-    margin-top: 1.6rem;
-    
+    margin: 1.6rem 0;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.resetBtn {
+    background-color: red;
+    margin: 0;
+    letter-spacing: 0.5rem;
+    padding: 1rem 0;
+    display: none;
+}
+.generateBtn:hover {
+    background-color: aqua;
+}
+.resetBtn:hover {
+    background-color: rgb(72, 255, 0);
 }
 
 

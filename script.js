@@ -1,4 +1,5 @@
 const submitBtn=document.querySelector('.generateBtn')
+const reset=document.querySelector('.resetBtn')
 
 submitBtn.addEventListener('click',()=> {
     const length=document.querySelector('#length').value
@@ -24,6 +25,16 @@ submitBtn.addEventListener('click',()=> {
         alert('Please select at least one checkbox')
         return;
     }
+    reset.style.display='block'
+    reset.addEventListener('click',()=> {
+        document.querySelector('.password').textContent='Generated Password';
+        reset.style.display='none'
+        
+        document.querySelector('#uppercase').checked=false;
+        document.querySelector('#lowercase').checked = false;
+        document.querySelector('#numbers').checked = false;
+        document.querySelector('#symbols').checked = false;
+    })
 
     let password="";
 
