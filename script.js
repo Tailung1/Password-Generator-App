@@ -1,8 +1,21 @@
 const submitBtn=document.querySelector('.generateBtn')
 const reset=document.querySelector('.resetBtn')
+const rangeValue=document.querySelector('.range-value')
+const lengthElement=document.querySelector('#length')
+rangeValue.textContent=lengthElement.value
+
+
+lengthElement.addEventListener('input',()=> {
+    rangeValue.textContent=Number(lengthElement.value) 
+    if (Number(lengthElement.value) === 20 || Number(lengthElement.value) === 4 || Number(lengthElement.value) <4) {
+        rangeValue.style.color = 'red';
+    } else {
+        rangeValue.style.color ='#A4FFAF';
+    }
+})
 
 submitBtn.addEventListener('click',()=> {
-    const length=document.querySelector('#length').value
+    const length=Number(lengthElement.value)
 
     const uppercaseInclude=document.querySelector('#uppercase').checked;
     const lowercaseInclude=document.querySelector('#lowercase').checked;
