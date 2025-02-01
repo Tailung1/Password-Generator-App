@@ -81,30 +81,30 @@ submitBtn.addEventListener('click',()=> {
         return;
     }
     reset.style.display='block'
-    reset.addEventListener('click',()=> {
-        document.querySelector('.password').textContent='Generated Password';
-        reset.style.display='none'
-        rangeValue.textContent=11;
-        rangeValue.style.color ='#A4FFAF';
-        lengthElement.value=11
-        
-        document.querySelector('#uppercase').checked=false;
-        document.querySelector('#lowercase').checked = false;
-        document.querySelector('#numbers').checked = false;
-        document.querySelector('#symbols').checked = false;
-        passRaiting.textContent='None'
-
-        for(let i=0;i<=4;i++) {
-            boxes[i].style.backgroundColor='white' 
-        }
-    })
-
     let password="";
 
    for(let i=0;i<length;i++) {
-    const randomIndex=Math.floor(Math.random()*characters.length)
-    password+=characters[randomIndex]
-   }
+        const randomIndex=Math.floor(Math.random()*characters.length)
+        password+=characters[randomIndex]
+    }
    document.querySelector('.password').textContent=password
-   
+
+
+   reset.addEventListener('click',()=> {
+    document.querySelector('.password').textContent='Generated Password';
+    reset.style.display='none'
+    rangeValue.textContent=11;
+    rangeValue.style.color ='#A4FFAF';
+    lengthElement.value=11
+    
+    document.querySelector('#uppercase').checked=false;
+    document.querySelector('#lowercase').checked = false;
+    document.querySelector('#numbers').checked = false;
+    document.querySelector('#symbols').checked = false;
+    passRaiting.textContent='None'
+
+    for(let i=0;i<boxes.length;i++) {
+        boxes[i].style.backgroundColor='white' 
+    }
+  }) 
 })
