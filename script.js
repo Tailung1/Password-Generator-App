@@ -6,6 +6,19 @@ rangeValue.textContent=lengthElement.value
 const boxes=document.querySelectorAll('.box')
 const passRaiting=document.querySelector('.password-strength')
 
+function strengthCheck(counter) {
+    if(counter ===0) {
+        passRaiting.textContent='None'
+    } else if(counter === 1) {
+        passRaiting.textContent='Medium'
+    } else if(counter === 2) {
+        passRaiting.textContent='Good'
+    } else if(counter === 3) {
+        passRaiting.textContent='Very Good'
+    } else if(counter === 4) {
+        passRaiting.textContent='Best'
+    }
+}
 
 
 
@@ -23,18 +36,6 @@ copyImg.addEventListener('click',()=> {
     })
 })
 
-// 2nd way to to copy function
-
-// copyImg.addEventListener('click',()=> {
-//     const tempTextArea=document.createElement('textarea');
-//     tempTextArea.value=textToCopy.textContent;
-//     document.body.appendChild(tempTextArea);
-//     tempTextArea.select();
-//     document.execCommand('copy')
-//     document.body.removeChild(tempTextArea)
-
-//     alert('Text copied to clipboard!')
-// })
 
 
 let counter=0;
@@ -54,19 +55,7 @@ uppercaseInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[i].style.backgroundColor='red'
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)      
         }
     } else {
         counter--
@@ -76,19 +65,7 @@ uppercaseInclude2.addEventListener('input',()=> {
                 boxes[counter].style.backgroundColor='white'
                 
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         } 
     }
 })
@@ -104,19 +81,7 @@ lowercaseInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[i].style.backgroundColor='red'
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         }
     } else {
         counter--
@@ -125,19 +90,7 @@ lowercaseInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[counter].style.backgroundColor='white'             
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         }
     }
     
@@ -151,19 +104,7 @@ numbersInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[i].style.backgroundColor='red'
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         }
     } else {
         counter--
@@ -172,19 +113,7 @@ numbersInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[counter].style.backgroundColor='white'        
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         }
     }
 })
@@ -196,19 +125,7 @@ symbolsInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[i].style.backgroundColor='red'
             }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            }else {
-                passRaiting.textContent='NORMAL'
-            }
+            strengthCheck(counter)
         }
     } else {
         counter--
@@ -217,21 +134,7 @@ symbolsInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[counter].style.backgroundColor='white'        
             }
-            
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            } 
-            
+            strengthCheck(counter)     
         }
     }
 })
