@@ -8,34 +8,6 @@ const passRaiting=document.querySelector('.password-strength')
 const copyImg=document.querySelector('.copy')
 const textToCopy=document.querySelector('.password')
 
-function strengthLights(option) {
-    if(option.checked) {
-        counter++
-        console.log(counter)
-        for(let i=0;i<counter;i++) {
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            strengthCheck(counter)
-        }
-    } else {
-        counter--
-        console.log(counter)
-        for(let i=0;i<=counter;i++) {
-            if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'        
-            }
-            strengthCheck(counter)     
-        }
-    }
-}
-
-function strengthCheck(counter) {
-    const strengths=['None','Medium','Good','Very Good','Best'];
-    passRaiting.textContent=strengths[counter]
-}
-
-
 copyImg.addEventListener('click',()=> {
     navigator.clipboard.writeText(textToCopy.textContent)
     .then(()=> {
@@ -46,31 +18,33 @@ copyImg.addEventListener('click',()=> {
 })
 
 
+function strengthLights() {
+    const strengthLightsInfo=Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+    let counter=strengthLightsInfo.length
+
+    for(let i=0;i<boxes.length;i++) {
+        if(i<counter) {
+            boxes[i].style.backgroundColor='red'
+        } else {
+            boxes[i].style.backgroundColor='white'
+        }
+        strengthInWords(counter)
+    }
+    
+}
+
+function strengthInWords(counter) {
+    const strengths=['None','Medium','Good','Very Good','Best'];
+    passRaiting.textContent=strengths[counter]
+}
+
 let counter=0;
 const checkboxes=Array.from(document.querySelectorAll('input[type="checkbox"]'))
 
-const uppercaseInclude2=document.querySelector('#uppercase')
-const lowercaseInclude2=document.querySelector('#lowercase');
-const numbersInclude2=document.querySelector('#numbers');
-const symbolsInclude2=document.querySelector('#symbols')
-
-
-uppercaseInclude2.addEventListener('input',()=> {
-    strengthLights(uppercaseInclude2)
-})
-
-lowercaseInclude2.addEventListener('input',()=> {
-    strengthLights(lowercaseInclude2)
-    
-})
-
-numbersInclude2.addEventListener('input',()=> {
-    strengthLights(numbersInclude2)
-})
-symbolsInclude2.addEventListener('input',()=> {
-    strengthLights(symbolsInclude2)
-})
-
+const uppercaseCheckBox=document.querySelector('#uppercase').addEventListener('input',strengthLights)
+const lowercaseCheckBox=document.querySelector('#lowercase').addEventListener('input',strengthLights)
+const numbersCheckBox=document.querySelector('#numbers').addEventListener('input',strengthLights)
+const symbolsCheckBox=document.querySelector('#symbols').addEventListener('input',strengthLights)
 
 lengthElement.addEventListener('input',()=> {
     rangeValue.textContent=Number(lengthElement.value) 

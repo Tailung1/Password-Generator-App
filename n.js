@@ -5,14 +5,8 @@ const lengthElement=document.querySelector('#length')
 rangeValue.textContent=lengthElement.value
 const boxes=document.querySelectorAll('.box')
 const passRaiting=document.querySelector('.password-strength')
-
-
-
-
 const copyImg=document.querySelector('.copy')
 const textToCopy=document.querySelector('.password')
-
-
 
 copyImg.addEventListener('click',()=> {
     navigator.clipboard.writeText(textToCopy.textContent)
@@ -23,220 +17,34 @@ copyImg.addEventListener('click',()=> {
     })
 })
 
-// 2nd way to to copy function
 
-// copyImg.addEventListener('click',()=> {
-//     const tempTextArea=document.createElement('textarea');
-//     tempTextArea.value=textToCopy.textContent;
-//     document.body.appendChild(tempTextArea);
-//     tempTextArea.select();
-//     document.execCommand('copy')
-//     document.body.removeChild(tempTextArea)
+function strengthLights() {
+    const strengthLightsInfo=document.querySelectorAll('input[type=checkbox].checked')
+    let counter=strengthLightsInfo.length
 
-//     alert('Text copied to clipboard!')
-// })
+    for(let i=0;i<boxes.length;i++) {
+        if(i<counter) {
+            boxes[i].style.backgroundColo='red'
+        } else {
+            boxes[i].style.backgroundColo='white'
+        }
+        strengthInWords(counter)
+    }
+    
+}
 
+function strengthInWords(counter) {
+    const strengths=['None','Medium','Good','Very Good','Best'];
+    passRaiting.textContent=strengths[counter]
+}
 
 let counter=0;
 const checkboxes=Array.from(document.querySelectorAll('input[type="checkbox"]'))
 
-const uppercaseInclude2=document.querySelector('#uppercase')
-const lowercaseInclude2=document.querySelector('#lowercase');
-const numbersInclude2=document.querySelector('#numbers');
-const symbolsInclude2=document.querySelector('#symbols')
-
-
-uppercaseInclude2.addEventListener('input',()=> {
-    if(uppercaseInclude2.checked) {
-        counter++
-        console.log(counter)
-        for(let i=0;i<counter;i++) {
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    } else {
-        counter--
-        console.log(counter)
-        for(let i=0;i<=counter;i++) {
-            if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'
-                
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        } 
-    }
-})
-
-lowercaseInclude2.addEventListener('input',()=> {
-    if(lowercaseInclude2.checked) {
-        counter++
-        console.log(counter)
-        for(let i=0;i<counter;i++) {
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    } else {
-        counter--
-        console.log(counter)
-        for(let i=0;i<=counter;i++) {
-            if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'             
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    }
-    
-})
-
-numbersInclude2.addEventListener('input',()=> {
-    if(numbersInclude2.checked) {
-        counter++
-        console.log(counter)
-        for(let i=0;i<counter;i++) {
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    } else {
-        counter--
-        console.log(counter)
-        for(let i=0;i<=counter;i++) {
-            if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'        
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    }
-})
-symbolsInclude2.addEventListener('input',()=> {
-    if(symbolsInclude2.checked) {
-        counter++
-        console.log(counter)
-        for(let i=0;i<counter;i++) {
-            if(boxes[i]) {
-                boxes[i].style.backgroundColor='red'
-            }
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            }else {
-                passRaiting.textContent='NORMAL'
-            }
-        }
-    } else {
-        counter--
-        console.log(counter)
-        for(let i=0;i<=counter;i++) {
-            if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'        
-            }
-            
-            if(counter===1) {
-                passRaiting.textContent='MEDIUM'
-            } else if(counter===2) {
-                passRaiting.textContent='GOOD'
-            } 
-            else if(counter===3) {
-                passRaiting.textContent='VERY GOOD'
-            } 
-            else if(counter===4) {
-                passRaiting.textContent='BEST'
-            } else {
-                passRaiting.textContent='NORMAL'
-            } 
-            
-        }
-    }
-})
-
-
+const uppercaseCheckBox=document.querySelector('#uppercase').addEventListener('input',strengthLights)
+const lowercaseCheckBox=document.querySelector('#lowercase').addEventListener('input',strengthLights)
+const numbersCheckBox=document.querySelector('#numbers').addEventListener('input',strengthLights)
+const symbolsCheckBox=document.querySelector('#symbols').addEventListener('input',strengthLights)
 
 lengthElement.addEventListener('input',()=> {
     rangeValue.textContent=Number(lengthElement.value) 
