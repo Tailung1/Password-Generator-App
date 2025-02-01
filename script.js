@@ -284,6 +284,7 @@ submitBtn.addEventListener('click',()=> {
         document.querySelector('#lowercase').checked = false;
         document.querySelector('#numbers').checked = false;
         document.querySelector('#symbols').checked = false;
+        passRaiting.textContent='None'
 
         for(let i=0;i<=4;i++) {
             boxes[i].style.backgroundColor='white' 
