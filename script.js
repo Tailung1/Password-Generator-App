@@ -4,6 +4,9 @@ const rangeValue=document.querySelector('.range-value')
 const lengthElement=document.querySelector('#length')
 rangeValue.textContent=lengthElement.value
 const boxes=document.querySelectorAll('.box')
+const passRaiting=document.querySelector('.password-strength')
+
+
 
 
 const copyImg=document.querySelector('.copy')
@@ -15,7 +18,6 @@ copyImg.addEventListener('click',()=> {
     navigator.clipboard.writeText(textToCopy.textContent)
     .then(()=> {
         alert('Text copied to clipboard')
-
     }) .catch(error => {
         alert('Failed to copy text:'+error)
     })
@@ -48,6 +50,24 @@ uppercaseInclude2.addEventListener('input',()=> {
     if(uppercaseInclude2.checked) {
         counter++
         console.log(counter)
+        for(let i=0;i<counter;i++) {
+            if(boxes[i]) {
+                boxes[i].style.backgroundColor='red'
+            }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            }
+        }
     } else {
         counter--
         console.log(counter)
@@ -56,12 +76,20 @@ uppercaseInclude2.addEventListener('input',()=> {
                 boxes[counter].style.backgroundColor='white'
                 
             }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            }
         } 
-    }
-    for(let i=0;i<counter;i++) {
-        if(boxes[i]) {
-            boxes[i].style.backgroundColor='red'
-        }
     }
 })
 
@@ -69,27 +97,74 @@ lowercaseInclude2.addEventListener('input',()=> {
     if(lowercaseInclude2.checked) {
         counter++
         console.log(counter)
+        for(let i=0;i<counter;i++) {
+            if(boxes[i]) {
+                boxes[i].style.backgroundColor='red'
+            }
+            if(boxes[i]) {
+                boxes[i].style.backgroundColor='red'
+            }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            }
+        }
     } else {
         counter--
         console.log(counter)
         for(let i=0;i<=counter;i++) {
             if(boxes[i]) {
-                boxes[counter].style.backgroundColor='white'
-                
+                boxes[counter].style.backgroundColor='white'             
+            }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
             }
         }
     }
-    for(let i=0;i<counter;i++) {
-        if(boxes[i]) {
-            boxes[i].style.backgroundColor='red'
-        }
-    }
+    
 })
 
 numbersInclude2.addEventListener('input',()=> {
     if(numbersInclude2.checked) {
         counter++
         console.log(counter)
+        for(let i=0;i<counter;i++) {
+            if(boxes[i]) {
+                boxes[i].style.backgroundColor='red'
+            }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            }
+        }
     } else {
         counter--
         console.log(counter)
@@ -97,11 +172,19 @@ numbersInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[counter].style.backgroundColor='white'        
             }
-        }
-    }
-    for(let i=0;i<counter;i++) {
-        if(boxes[i]) {
-            boxes[i].style.backgroundColor='red'
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            }
         }
     }
 })
@@ -109,6 +192,24 @@ symbolsInclude2.addEventListener('input',()=> {
     if(symbolsInclude2.checked) {
         counter++
         console.log(counter)
+        for(let i=0;i<counter;i++) {
+            if(boxes[i]) {
+                boxes[i].style.backgroundColor='red'
+            }
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            }else {
+                passRaiting.textContent='NORMAL'
+            }
+        }
     } else {
         counter--
         console.log(counter)
@@ -116,11 +217,21 @@ symbolsInclude2.addEventListener('input',()=> {
             if(boxes[i]) {
                 boxes[counter].style.backgroundColor='white'        
             }
-        }
-    }
-    for(let i=0;i<counter;i++) {
-        if(boxes[i]) {
-            boxes[i].style.backgroundColor='red'
+            
+            if(counter===1) {
+                passRaiting.textContent='MEDIUM'
+            } else if(counter===2) {
+                passRaiting.textContent='GOOD'
+            } 
+            else if(counter===3) {
+                passRaiting.textContent='VERY GOOD'
+            } 
+            else if(counter===4) {
+                passRaiting.textContent='BEST'
+            } else {
+                passRaiting.textContent='NORMAL'
+            } 
+            
         }
     }
 })
