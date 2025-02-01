@@ -7,20 +7,9 @@ const boxes=document.querySelectorAll('.box')
 const passRaiting=document.querySelector('.password-strength')
 
 function strengthCheck(counter) {
-    if(counter ===0) {
-        passRaiting.textContent='None'
-    } else if(counter === 1) {
-        passRaiting.textContent='Medium'
-    } else if(counter === 2) {
-        passRaiting.textContent='Good'
-    } else if(counter === 3) {
-        passRaiting.textContent='Very Good'
-    } else if(counter === 4) {
-        passRaiting.textContent='Best'
-    }
+    const strengths=['None','Medium','Good','Very Good','Best'];
+    passRaiting.textContent=strengths[counter]
 }
-
-
 
 const copyImg=document.querySelector('.copy')
 const textToCopy=document.querySelector('.password')
