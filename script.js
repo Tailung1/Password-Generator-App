@@ -17,7 +17,6 @@ copyImg.addEventListener('click',()=> {
     })
 })
 
-
 function updateStrengthIndicators() {
     const checkedStrengthOptopns=document.querySelectorAll('input[type="checkbox"]:checked').length
     boxes.forEach((box,index)=> {
@@ -29,9 +28,6 @@ function updateStrengthIndicators() {
         passRaiting.textContent=strengths[index]
     }   
 }
-
-
-
 
 let counter=0;
 const checkboxes=Array.from(document.querySelectorAll('input[type="checkbox"]'))
