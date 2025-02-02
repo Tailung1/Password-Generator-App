@@ -18,33 +18,28 @@ copyImg.addEventListener('click',()=> {
 })
 
 
-function strengthLights() {
-    const strengthLightsInfo=Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-    let counter=strengthLightsInfo.length
-
-    for(let i=0;i<boxes.length;i++) {
-        if(i<counter) {
-            boxes[i].style.backgroundColor='red'
-        } else {
-            boxes[i].style.backgroundColor='white'
-        }
-        strengthInWords(counter)
-    }
-    
+function updateStrengthIndicators() {
+    const checkedStrengthOptopns=document.querySelectorAll('input[type="checkbox"]:checked').length
+    boxes.forEach((box,index)=> {
+        box.style.backgroundColor=index<checkedStrengthOptopns?'red':"white"
+        getStrengthLabel(checkedStrengthOptopns)
+    })  
+    function getStrengthLabel(index) {
+        const strengths=['None','Medium','Good','Very Good','Best'];
+        passRaiting.textContent=strengths[index]
+    }   
 }
 
-function strengthInWords(counter) {
-    const strengths=['None','Medium','Good','Very Good','Best'];
-    passRaiting.textContent=strengths[counter]
-}
+
+
 
 let counter=0;
 const checkboxes=Array.from(document.querySelectorAll('input[type="checkbox"]'))
 
-const uppercaseCheckBox=document.querySelector('#uppercase').addEventListener('input',strengthLights)
-const lowercaseCheckBox=document.querySelector('#lowercase').addEventListener('input',strengthLights)
-const numbersCheckBox=document.querySelector('#numbers').addEventListener('input',strengthLights)
-const symbolsCheckBox=document.querySelector('#symbols').addEventListener('input',strengthLights)
+const uppercaseCheckBox=document.querySelector('#uppercase').addEventListener('input',updateStrengthIndicators)
+const lowercaseCheckBox=document.querySelector('#lowercase').addEventListener('input',updateStrengthIndicators)
+const numbersCheckBox=document.querySelector('#numbers').addEventListener('input',updateStrengthIndicators)
+const symbolsCheckBox=document.querySelector('#symbols').addEventListener('input',updateStrengthIndicators)
 
 lengthElement.addEventListener('input',()=> {
     rangeValue.textContent=Number(lengthElement.value) 
